@@ -1,0 +1,5 @@
+.ijwb
+bazel-bin
+bazel-kotlin-jvm-default
+bazel-out
+bazel-testlogs

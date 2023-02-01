@@ -1,0 +1,36 @@
+load("@io_bazel_rules_kotlin//kotlin:jvm.bzl", "kt_jvm_binary", "kt_jvm_library")
+
+kt_jvm_library(
+    name = "module-with-plugin",
+    srcs = glob([
+        "*.kt",
+        "*.java",
+    ]),
+    plugins = ["//plugin"],
+    deps = [
+    ],
+)
+
+kt_jvm_library(
+    name = "module-without-plugin",
+    srcs = glob([
+        "*.kt",
+        "*.java",
+    ]),
+    deps = [
+    ],
+)
+
+kt_jvm_binary(
+    name = "main-with-plugin",
+    srcs = ["main.kt"],
+    main_class = "module.MainKt",
+    deps = [":module-with-plugin"],
+)
+
+kt_jvm_binary(
+    name = "main-without-plugin",
+    srcs = ["main.kt"],
+    main_class = "module.MainKt",
+    deps = [":module-without-plugin"],
+)

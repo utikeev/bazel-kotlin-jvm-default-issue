@@ -1,0 +1,8 @@
+java_plugin(
+    name = "plugin",
+    srcs = ["Plugin.java"],
+    generates_api = True,
+    processor_class = "plugin.Plugin",
+    visibility = ["//visibility:public"],
+    deps = [],
+)
